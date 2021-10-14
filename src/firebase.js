@@ -1,4 +1,5 @@
-import firebase from "firebase";
+import firebase from "firebase/compat";
+import "firebase/firestore";
 import { ref, onUnmounted } from "vue";
 
 const firebaseConfig = {
@@ -10,14 +11,15 @@ const firebaseConfig = {
     appId: "1:836541597841:web:7f43603a862213ecbc1730"
   };
 
-  const firebaseApp = initializeApp(firebaseConfig);
+  const firebaseApp = firebase.initializeApp(firebaseConfig);
 
   const db = firebaseApp.firestore();
   const psykerCollection = db.collection("psykers");
 
   //CREATE FUNCTION
   export const createPsyker = psyker => {
-      return usersCollection.add(psyker);
+      console.log(psyker);
+      return psykerCollection.add(psyker);
   }
   // READ/GET FUNCTION
   export const getUser = async id => {
