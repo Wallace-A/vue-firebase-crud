@@ -1,5 +1,5 @@
-import firebase from "firebase/compat";
-import "firebase/firestore";
+import firebase from 'firebase/compat'
+import 'firebase/firestore'
 import { ref, onUnmounted } from "vue";
 
 const firebaseConfig = {
@@ -13,7 +13,7 @@ const firebaseConfig = {
 
   const firebaseApp = firebase.initializeApp(firebaseConfig);
 
-  const db = firebaseApp.firestore();
+  const db= firebaseApp.firestore()
   const psykerCollection = db.collection("psykers");
 
   //CREATE FUNCTION

@@ -57,7 +57,6 @@ export default {
       //reset inputs
       form.name="";
       form.type=""; 
-
     };
 
     return { form, update }

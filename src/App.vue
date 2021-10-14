@@ -6,6 +6,21 @@
   <router-view/>
 </template>
 
+<script>
+export default {
+  name: "App",
+  computed: {
+        homePage() {
+            if(this.$route.path === "/") {
+                return true;
+            } else {
+                return false;
+            }
+        }
+    }
+}
+</script>
+
 <style>
 #app {
   font-family: Avenir, Helvetica, Arial, sans-serif;

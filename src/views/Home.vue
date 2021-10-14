@@ -1,6 +1,6 @@
 <template>
   <div class="home">
-    <img alt="Vue logo" src="../assets/logo.png">
+    <h1>Welcome, Magister.</h1>
     <PsykerCreate/>
     <PsykerList/>
   </div>
