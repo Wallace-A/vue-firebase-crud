@@ -22,16 +22,16 @@ const firebaseConfig = {
       return psykerCollection.add(psyker);
   }
   // READ/GET FUNCTION
-  export const getUser = async id => {
+  export const getPsyker = async id => {
       const psyker= await psykerCollection.doc(id).get();
       return psyker.exists ? psyker.data() : null;
   }
   // UPDATE FUNCTION
-  export const updateUser = (id, psyker) => {
+  export const updatePsyker = (id, psyker) => {
       return psykerCollection.doc(id).update(psyker);
   }
   // DELETE FUNCTION
-  export const deleteUser = id => {
+  export const deletePsyker = id => {
       return psykerCollection.doc(id).delete();
   }
   // REFERENCE TO PSYKERS THAT CHANGES ON UPDATE TO DB
