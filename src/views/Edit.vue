@@ -1,34 +1,47 @@
 <template>
-  <div class="card card-body mt-4">
+  <div class="card card-body mx-0 mx-md-5">
     <h3>Edit Psyker</h3>
     <form @submit.prevent="update">
-      <div class="form-group">
-          <label>Name</label>
-          <input 
-          v-model="form.name" 
-          class="form-control" 
-          required>
+      <div class="row">
+        <div class="col-md form-group">
+            <label>Name</label>
+            <input 
+            v-model="form.name" 
+            class="form-control" 
+            required>
+        </div>
+
+        <div class="col-md form-group mt-3 mt-md-0">
+            <label>Type</label>
+            <select v-model="form.type" class="form-control" required>
+                <option disabled value="">Please select one</option>
+                <option>Thousand Sons Daemon Prince</option>
+                <option>Exalted Sorcerer</option>
+                <option>Sorcerer</option>
+                <option>Sorcerer in Terminator Armour</option>
+                <option>Infernal Master</option>
+                <option>Tzaangor Shaman</option>
+            </select>
+        </div>
       </div>
 
-      <div class="form-group mt-3">
-          <label>Type</label>
-          <select v-model="form.type" class="form-control" required>
-              <option disabled value="">Please select one</option>
-              <option>Thousand Sons Daemon Prince</option>
-              <option>Exalted Sorcerer</option>
-              <option>Sorcerer</option>
-              <option>Sorcerer in Terminator Armour</option>
-              <option>Infernal Master</option>
-              <option>Tzaangor Shaman</option>
-          </select>
+      <div class="row mt-3">
+        <div class="col-md form-group mt-3">
+            <label>Discipline of Change</label>
+            <div class="d-flex justify-content-between align-items-center" v-for="(power) in changePowers" :key="power.id" @change="checkPowers">
+                <label :for="power.name">{{power.name}}</label>
+                <input type="checkbox" id="power" :value="power.name" v-model="form.powers">
+            </div>
+        </div>
+        <div class="col-md form-group mt-3">
+            <label>Discipline of Vengeance</label>
+            <div class="d-flex justify-content-between align-items-center" v-for="(power) in vengPowers" :key="power.id" @change="checkPowers">
+                <label :for="power.name">{{power.name}}</label>
+                <input type="checkbox" id="power" :value="power.name" v-model="form.powers">
+            </div>
+        </div>
       </div>
-      <div class="form-group mt-3">
-          <label>Powers</label>
-          <div v-for="(power) in powers" :key="power.id">
-              <label :for="power.name">{{power.name}}</label>
-              <input type="checkbox" id="power" :value="power.name" v-model="form.powers">
-          </div>
-      </div>
+
       <button type="submit" class="btn btn-success mt-3">
           Update Psyker
       </button>
@@ -63,6 +76,7 @@ export default {
       form.name = psyker.name;
       form.type = psyker.type;
       form.powers= psyker.powers;
+      console.log(psyker);
     })
     const update = async () => {
       await updatePsyker(psykerId.value, { ...form})
@@ -73,8 +87,18 @@ export default {
       form.type=""; 
       form.powers=[];
     };
-
-    return { form, units, powers, update }
+    const checkPowers = () => {
+      console.log(form.powers);
+    }
+    return { form, units, powers, update, checkPowers }
+  },
+  computed: {
+    changePowers: function () {
+        return this.powers.filter(p => p.discipline === 'change')
+    },
+    vengPowers: function () {
+        return this.powers.filter(p => p.discipline === 'vengeance')
+    }
   }
 }
 </script>
