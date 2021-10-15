@@ -1,0 +1,28 @@
+[
+    {
+        "Thousand Sons Deamon Prince": {
+            "knownPowers": 2,
+            "castPowers": 2
+        },
+        "Exalted Sorcerer": {
+            "knownPowers": 2,
+            "castPowers": 2
+        },
+        "Sorcerer": {
+            "knownPowers": 2,
+            "castPowers": 2
+        },
+        "Sorcerer in Terminator Armour": {
+            "knownPowers": 2,
+            "castPowers": 2
+        },
+        "Infernal Master": {
+            "knownPowers": 1,
+            "castPowers": 1
+        },
+        "Tzaangor Shaman": {
+            "knownPowers": 1,
+            "castPowers": 1
+        }
+    }
+]
