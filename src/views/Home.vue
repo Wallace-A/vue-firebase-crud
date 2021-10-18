@@ -1,5 +1,5 @@
 <template>
-  <div class="home">
+  <div class="home" >
     <h1>Welcome, Magister.</h1>
     <PsykerCreate/>
     <PsykerList/>

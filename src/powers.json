@@ -2,91 +2,110 @@
     {
         "name": "Tzeentch's Firestorm",
         "discipline": "change",
-        "warpCharge": 6
+        "warpCharge": 6,
+        "type": "Witchfire"
+
     },
     {
         "name": "Baleful Devolution",
         "discipline": "change",
-        "warpCharge": 8
+        "warpCharge": 8,
+        "type": "Witchfire"
     },
     {
         "name": "Glamour of Tzeentch",
         "discipline": "change",
-        "warpCharge": 6
+        "warpCharge": 6,
+        "type": "Blessing"
     },
     {
         "name": "Doombolt",
         "discipline": "change",
-        "warpCharge": 6
+        "warpCharge": 6,
+        "type": "Witchfire"
     },
     {
         "name": "Temporal Manipulation",
         "discipline": "change",
-        "warpCharge": 5
+        "warpCharge": 5,
+        "type": "Blessing"
     },
     {
         "name": "Weaver of Fates",
         "discipline": "change",
-        "warpCharge": 7
+        "warpCharge": 7,
+        "type": "Blessing"
     },
     {
         "name": "Cacodemonic Curse",
         "discipline": "change",
-        "warpCharge": 6
+        "warpCharge": 6,
+        "type": "Malediction"
     },
     {
         "name": "Pyric Flux",
         "discipline": "change",
-        "warpCharge": 5
+        "warpCharge": 5,
+        "type": "Blessing"
     },
     {
         "name": "Perplex",
         "discipline": "change",
-        "warpCharge": 7
+        "warpCharge": 7,
+        "type": "Malediction"
     },
     {
         "name": "Gaze of Hate",
         "discipline": "vengeance",
-        "warpCharge": 5
+        "warpCharge": 5,
+        "type": "Witchfire"
     },
     {
         "name": "Twist of Fate",
         "discipline": "vengeance",
-        "warpCharge": 8
+        "warpCharge": 8,
+        "type": "Malediction"
     },
     {
         "name": "Presage",
         "discipline": "vengeance",
-        "warpCharge": 7
+        "warpCharge": 7,
+        "type": "Blessing"
     },
     {
         "name": "Swelled by the Warp",
         "discipline": "vengeance",
-        "warpCharge": 6
+        "warpCharge": 6,
+        "type": "Blessing"
     },
     {
         "name": "Dark Blessing",
         "discipline": "vengeance",
-        "warpCharge": 6
+        "warpCharge": 6,
+        "type": "Witchfire"
     },
     {
         "name": "Temporal Surge",
         "discipline": "vengeance",
-        "warpCharge": 7
+        "warpCharge": 7,
+        "type": "Blessing"
     },
     {
         "name": "Empyric Guidance",
         "discipline": "vengeance",
-        "warpCharge": 4
+        "warpCharge": 4,
+        "type": "Blessing"
     },
     {
         "name": "Psychic Stalk",
         "discipline": "vengeance",
-        "warpCharge": 5
+        "warpCharge": 5,
+        "type": "Witchfire"
     },
     {
         "name": "Desecration of Worlds",
-        "discipline": "vengeance",
-        "warpCharge": 7
+        "discipline": "Malediction",
+        "warpCharge": 7,
+        "type": "blessing"
     }
 ]

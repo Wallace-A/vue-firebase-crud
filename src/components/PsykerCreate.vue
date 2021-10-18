@@ -1,5 +1,5 @@
 <template>
-  <div class="card card-body mx-0 mx-md-5">
+  <div class="card card-body mx-0 mx-md-auto w-80 d-flex justify-content-center">
        <h3>Create Psyker</h3>
       <form @submit.prevent="onSubmit">
           <div class="row">
@@ -13,14 +13,9 @@
 
             <div class="col-md form-group mt-3 mt-md-0">
                 <h5>Type</h5>
-                    <select v-model="form.type" @change="calculateStats" class="form-control" required>
+                    <select v-model="form.type" @change="checkCurrentUnit" class="form-control" required>
                         <option disabled value="">Please select one</option>
-                        <option>Thousand Sons Daemon Prince</option>
-                        <option>Exalted Sorcerer</option>
-                        <option>Sorcerer</option>
-                        <option>Sorcerer in Terminator Armour</option>
-                        <option>Infernal Master</option>
-                        <option>Tzaangor Shaman</option>
+                        <option v-for="(unit, key) in units" :key="key">{{key}}</option>
                     </select>
             </div>
           </div>
@@ -30,14 +25,14 @@
                     <h5>Discipline of Change</h5>
                     <div class="d-flex justify-content-between align-items-center" v-for="(power) in changePowers" :key="power.id" @change="checkPowers">
                         <label :for="power.name">{{power.name}}</label>
-                        <input type="checkbox" id="power" :value="power.name" v-model="form.powers">
+                        <input :disabled="form.powers.length === currentUnit.knownPowers && form.powers.indexOf(power.name) === -1" type="checkbox" id="power" :value="power.name" v-model="form.powers">
                     </div>
                 </div>
                 <div class="col-md form-group mt-3">
                     <h5>Discipline of Vengeance</h5>
                     <div class="d-flex justify-content-between align-items-center" v-for="(power) in vengPowers" :key="power.id" @change="checkPowers">
                         <label :for="power.name">{{power.name}}</label>
-                        <input type="checkbox" id="power" :value="power.name" v-model="form.powers">
+                        <input :disabled="form.powers.length === currentUnit.knownPowers && form.powers.indexOf(power.name) === -1" type="checkbox" id="power" :value="power.name" v-model="form.powers">
                     </div>
                 </div>
             </div>
@@ -63,7 +58,12 @@ export default {
             type: "",
             powers: []
         })
-        const units = unitList;
+        const units = unitList[0];
+        let currentUnit = reactive({
+            knownPowers: 0,
+            castPowers: 0
+        });
+        console.log(currentUnit.knownPowers);
         const powers = powerList;
         const onSubmit = async () => {
             await createPsyker({...form})
@@ -82,7 +82,11 @@ export default {
         const checkPowers = () => {
             console.log(form.powers);
         }
-        return { form, units, powers, onSubmit, calculateStats, checkPowers }
+        const checkCurrentUnit = () => {
+            currentUnit.value = units[form.type]
+            console.log(currentUnit.value.knownPowers);
+        }
+        return { form, units, powers, currentUnit, onSubmit, calculateStats, checkCurrentUnit, checkPowers }
     },
     computed: {
     changePowers: function () {
